@@ -28,6 +28,9 @@ void setting_for_instruction(void)
 		{"nop", &monty_func_for_nop},
 		{"add", &monty_func_for_add},
 		{"sub", &monty_func_for_sub},
+		{"mul", &monty_func_for_mul},
+		{"div", &monty_func_for_div},
+		{"mod", &monty_func_for_mod},
 		{"pall", &monty_func_for_pall},
 		{NULL, NULL}
 	};

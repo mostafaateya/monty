@@ -99,5 +99,8 @@ void free_stack(stack_t *);
 void free_tokenizer(void);
 
 void monty_func_for_sub(stack_t **, unsigned int);
+void monty_func_for_mul(stack_t **, unsigned int);
+void monty_func_for_div(stack_t **, unsigned int);
+void monty_func_for_mod(stack_t **, unsigned int);
 
 #endif
