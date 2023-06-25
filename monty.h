@@ -98,4 +98,6 @@ void free_all_memory(void);
 void free_stack(stack_t *);
 void free_tokenizer(void);
 
+void monty_func_for_sub(stack_t **, unsigned int);
+
 #endif

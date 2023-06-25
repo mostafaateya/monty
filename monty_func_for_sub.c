@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * monty_func_for_sub - subtractes the top 2 elements in a stack
+ * monty_func_for_sub - adds the top 2 elements in a stack
  * @x: pointer to the top element in a stack
  * @l: line number
  * Return: nothing

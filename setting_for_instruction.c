@@ -27,6 +27,7 @@ void setting_for_instruction(void)
 		{"swap", &monty_func_for_swap},
 		{"nop", &monty_func_for_nop},
 		{"add", &monty_func_for_add},
+		{"sub", &monty_func_for_sub},
 		{"pall", &monty_func_for_pall},
 		{NULL, NULL}
 	};
