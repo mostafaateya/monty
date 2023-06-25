@@ -1,30 +1,31 @@
 #include "monty.h"
-#include <fcntl.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <string.h>
 
-char **operational_str = NULL;
-s_data_s mos;
+s_data_s *mos = NULL;
 
 /**
  * main - main program
- * @argc: the count of arguments
- * @argv: pointer to array of char
- * Return: exit success or exit failure
+ * @argc: number of arguments
+ * @argv: arrays of arguments
+ * Return: 0 on Success
  */
 
 int main(int argc, char **argv)
 {
-	FILE *xxx = NULL;
-	int _exit = EXIT_SUCCESS;
+	size_t z = 0;
 
-	if (argc != 2)
-		return (monty_error_for_usage());
-	xxx = fopen(argv[1], "r");
-	if (xxx == NULL)
-		return (monty_error_for_file_opening(argv[1]));
-	_exit = monty_func_for_run(xxx);
-	fclose(xxx);
-	return (_exit);
+	check_argv(argc);
+	define_mos();
+	reading_file(argv[1]);
+
+	while (getline(&mos->a, &z, mos->ff) != -1)
+	{
+		mos->x += 1;
+		tokenizer();
+		setting_for_instruction();
+		monty_func_for_run();
+		free_tokenizer();
+	}
+	closing_file();
+	free_data_stack();
+	return (0);
 }

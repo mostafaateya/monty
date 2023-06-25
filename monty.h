@@ -1,17 +1,12 @@
-#ifndef _MONTY_H_
-#define _MONTY_H_
-#define _POSIX_C_SOURCE 200809L
+#ifndef MONTY_H
+#define MONTY_H
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
-
-#define MOS_STACK 0
-#define MOS_QUEUE 1
-#define MOS_DELIMS " \n\t\a\b"
-
-extern char **operational_str;
+#include <stdlib.h>
+#include <stddef.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -22,6 +17,7 @@ extern char **operational_str;
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
+
 typedef struct stack_s
 {
 	int n;
@@ -37,6 +33,7 @@ typedef struct stack_s
  * Description: opcode and its function
  * for stack, queues, LIFO, FIFO
  */
+
 typedef struct instruction_s
 {
 	char *opcode;
@@ -44,92 +41,61 @@ typedef struct instruction_s
 } instruction_t;
 
 /**
- * struct data_content  - opcode and its function
- * @op_func: the opcode
- * @value: function to handle the opcode
- * @i: number of the line
- * Description: opcode and its function
- * for stack, queues, LIFO, FIFO
+ * struct data_stack - container for var
+ * @ff: file to bo opened and read
+ * @a: line text
+ * @x: num of line to trrack
+ * @s: store broken down tokens
+ * @xt: uasable ins
+ * @n: tokens num
+ * @top: h
+ * @nn: num of node in stack
+ * @st: stack
  */
-typedef struct data_content
+typedef struct data_stack
 {
-	char *op_func;
-	char *value;
-	int i;
-} data_t;
-
-/**
- * struct stack_data - opcode and its function
- * @int_value: needed input.
- * @data: needed input.
- * @fp: needed input.
- * @line: needed iput.
- * Description: stack_data
- */
-typedef struct stack_data
-{
-	int int_value;
-	data_t data;
-	FILE *fp;
-	char *line;
+	FILE *ff;
+	char *a;
+	unsigned int x;
+	char **s;
+	int n;
+	instruction_t *xt;
+	stack_t *top;
+	int nn;
+	int st;
 } s_data_s;
 
-extern s_data_s mos;
-
-int monty_error_for_usage(void);
-int monty_error_for_malloc(void);
-int monty_error_for_file_opening(char *);
-int monty_error_for_unkown_operation(char *, unsigned int);
-int monty_error_for_invlaid_inputs(unsigned int);
-
-int monty_error_for_pop(unsigned int);
-int monty_error_for_pint(unsigned int);
-int monty_error_for_small_stack(unsigned int, char *);
-int monty_error_for_div(unsigned int);
-int monty_error_for_pchar(unsigned int, char *);
-
-char *pointer_to_int(int);
-unsigned int int_absolute(int);
-int buffer_length(unsigned int, unsigned int);
-void set_num(unsigned int, unsigned int, char *, int);
-
-void monty_func_for_push(stack_t **, unsigned int);
-void monty_func_for_pall(stack_t **, unsigned int);
-void monty_func_for_pint(stack_t **, unsigned int);
-void monty_func_for_pop(stack_t **, unsigned int);
-void monty_func_for_swap(stack_t **, unsigned int);
+extern s_data_s *mos;
 
 void monty_func_for_add(stack_t **, unsigned int);
-void monty_func_for_sub(stack_t **, unsigned int);
-void monty_func_for_div(stack_t **, unsigned int);
-void monty_func_for_mul(stack_t **, unsigned int);
-void monty_func_for_mod(stack_t **, unsigned int);
-
+void closing_file(void);
+int monty_comments(void);
+void top_element_delete(void);
+void setting_for_instruction(void);
+void monty_error_for_message(void);
+void reading_file(char *);
+void stream_message(char *);
+void define_mos(void);
+int validate_num(char *);
+void monty_error_for_malloc(void);
 void monty_func_for_nop(stack_t **, unsigned int);
-void monty_func_for_pchar(stack_t **, unsigned int);
-void monty_func_for_pstr(stack_t **, unsigned int);
+void monty_func_for_push(stack_t **, unsigned int);
+void monty_func_for_pall(stack_t **, unsigned int);
+void monty_func_for_run(void);
+void monty_func_for_pop(stack_t **, unsigned int);
+void monty_func_for_pint(stack_t **, unsigned int);
+void check_argv(int);
+void tokenizer(void);
+void monty_func_for_swap(stack_t **, unsigned int);
 
-void monty_func_for_rotl(stack_t **, unsigned int);
-void monty_func_for_rotr(stack_t **, unsigned int);
-void monty_func_for_stack(stack_t **, unsigned int);
-void monty_func_for_queue(stack_t **, unsigned int);
+int dprintf(int, const char *, ...);
+ssize_t getline(char **, size_t *, FILE *);
+FILE *fdopen(int, const char *);
 
-void free_operational_str(void);
-unsigned int length_operational_str(void);
-int empty_or_not(char *, char*);
-void (*monty_func_for_match(char *))(stack_t **, unsigned int);
-int monty_func_for_run(FILE *);
-
-void monty_error_for_set_op(int);
-
-void free_stack(stack_t **);
-int initiation_stack(stack_t **);
-int monty_func_for_check(stack_t *);
-
-char **seperate_str(char *, char *);
-int is_delim(char, char *);
-int length_of_word(char *, char *);
-int count_of_word(char *, char *);
-char *the_next_word(char *, char *);
+void free_mos(void);
+void free_data_stack(void);
+void free_all_memory(void);
+void free_stack(stack_t *);
+void free_tokenizer(void);
 
 #endif
