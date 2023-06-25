@@ -21,7 +21,7 @@ void monty_func_for_sub(stack_t **x, unsigned int l)
 	top1 = mos->top;
 	top2 = top1->next;
 
-	top2->n = top1->n - top2->n;
+	top2->n = top2->n - top1->n;
 	top_element_delete();
 	mos->nn -= 1;
 }
