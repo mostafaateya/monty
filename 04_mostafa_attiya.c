@@ -11,12 +11,12 @@ void monty_func_for_push(stack_t **x_top, unsigned int l)
 {
 	stack_t *n, *top = *x_top;
 
-	if (!ex.data.value)
+	if (!mos.data.value)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", l);
 		free(mos.line);
 		fclose(mos.fp);
-		free_stack(*x_top);
+		free_stack(x_top);
 		exit(EXIT_FAILURE);
 	}
 
@@ -26,7 +26,7 @@ void monty_func_for_push(stack_t **x_top, unsigned int l)
 		fprintf(stderr, "Error: malloc failed\n");
 		free(mos.line);
 		fclose(mos.fp);
-		free_stack(*x_top);
+		free_stack(x_top);
 		exit(EXIT_FAILURE);
 	}
 	n->n = mos.int_value;
@@ -79,7 +79,7 @@ void monty_func_for_pint(stack_t **x_top, unsigned int l)
 		fprintf(stderr, "L%u: can't pint, stack empty\n", l);
 		free(mos.line);
 		fclose(mos.fp);
-		free_stack(*x_top);
+		free_stack(x_top);
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -102,7 +102,7 @@ void monty_func_for_pop(stack_t **x_top, unsigned int l)
 		fprintf(stderr, "L%u: can't pop an empty stack\n", l);
 		free(mos.line);
 		fclose(mos.fp);
-		free_stack(*x_top);
+		free_stack(x_top);
 		exit(EXIT_FAILURE);
 	}
 	top = *x_top;
@@ -134,7 +134,7 @@ void monty_func_for_swap(stack_t **x_top, unsigned int l)
 		fprintf(stderr, "L%u: can't swap, stack too short\n", l);
 		free(mos.line);
 		fclose(mos.fp);
-		free_stack(*x_top);
+		free_stack(x_top);
 		exit(EXIT_FAILURE);
 	}
 

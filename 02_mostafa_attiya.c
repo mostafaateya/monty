@@ -59,6 +59,6 @@ int monty_error_for_div(unsigned int z)
 
 int monty_error_for_pchar(unsigned int z, char *a)
 {
-	fprintf(stderr, "L%u: can't pchar, %S\n", z, a);
+	fprintf(stderr, "L%u: can't pchar, %s\n", z, a);
 	return (EXIT_FAILURE);
 }

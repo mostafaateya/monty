@@ -1,4 +1,4 @@
-#include "mont.h"
+#include "monty.h"
 
 /**
  * monty_func_for_rotl - rotates the top value

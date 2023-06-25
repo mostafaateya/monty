@@ -71,7 +71,7 @@ void monty_func_for_mod(stack_t **x_top, unsigned int l)
 {
 	if ((*x_top)->next == NULL || (*x_top)->next->next == NULL)
 	{
-		monty_error_for_set_op(monty_error_for_small_stack(l, "mod");
+		monty_error_for_set_op(monty_error_for_small_stack(l, "mod"));
 		return;
 	}
 	if ((*x_top)->next->n == 0)

@@ -2,6 +2,10 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <string.h>
+
+char **operational_str = NULL;
+s_data_s mos;
 
 /**
  * main - main program
@@ -12,7 +16,6 @@
 
 int main(int argc, char **argv)
 {
-	char **operational_str = NULL;
 	FILE *xxx = NULL;
 	int _exit = EXIT_SUCCESS;
 

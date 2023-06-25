@@ -6,7 +6,7 @@
  * Return: pointer to new string
  */
 
-char pointer_to_int(int x)
+char *pointer_to_int(int x)
 {
 	unsigned int t;
 	int m = 0;

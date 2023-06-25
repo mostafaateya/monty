@@ -1,11 +1,11 @@
 #ifndef _MONTY_H_
 #define _MONTY_H_
+#define _POSIX_C_SOURCE 200809L
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <ctype.h>
 
 #define MOS_STACK 0
 #define MOS_QUEUE 1
@@ -55,7 +55,7 @@ typedef struct data_content
 {
 	char *op_func;
 	char *value;
-	int i ;
+	int i;
 } data_t;
 
 /**
@@ -113,5 +113,23 @@ void monty_func_for_rotl(stack_t **, unsigned int);
 void monty_func_for_rotr(stack_t **, unsigned int);
 void monty_func_for_stack(stack_t **, unsigned int);
 void monty_func_for_queue(stack_t **, unsigned int);
+
+void free_operational_str(void);
+unsigned int length_operational_str(void);
+int empty_or_not(char *, char*);
+void (*monty_func_for_match(char *))(stack_t **, unsigned int);
+int monty_func_for_run(FILE *);
+
+void monty_error_for_set_op(int);
+
+void free_stack(stack_t **);
+int initiation_stack(stack_t **);
+int monty_func_for_check(stack_t *);
+
+char **seperate_str(char *, char *);
+int is_delim(char, char *);
+int length_of_word(char *, char *);
+int count_of_word(char *, char *);
+char *the_next_word(char *, char *);
 
 #endif
