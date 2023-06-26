@@ -23,7 +23,7 @@ void monty_func_for_mod(stack_t **x, unsigned int l)
 
 	if (top1->n == 0)
 	{
-		dprintf(2, "L%d: division by zero\n",l);
+		dprintf(2, "L%d: division by zero\n", l);
 		free_all_memory();
 		exit(EXIT_FAILURE);
 	}
