@@ -109,4 +109,7 @@ void monty_func_for_pstr(stack_t **, unsigned int);
 void monty_func_for_rotl(stack_t **, unsigned int);
 void monty_func_for_rotr(stack_t **, unsigned int);
 
+void monty_func_for_stack(stack_t **, unsigned int);
+void monty_func_for_queue(stack_t **, unsigned int);
+
 #endif

@@ -36,6 +36,8 @@ void setting_for_instruction(void)
 		{"pstr", &monty_func_for_pstr},
 		{"rotl", &monty_func_for_rotl},
 		{"rotr", &monty_func_for_rotr},
+		{"stack", &monty_func_for_stack},
+		{"queue", &monty_func_for_queue},
 		{NULL, NULL}
 	};
 	if (mos->n == 0)
