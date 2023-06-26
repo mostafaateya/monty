@@ -13,7 +13,7 @@ void monty_func_for_pchar(stack_t **x, unsigned int l)
 	stack_t *top = mos->top;
 
 	(void) x;
-	if (top->n >= 0 || top->n <= 127)
+	if (top->n >= 0 && top->n <= 127)
 		printf("%c\n", top->n);
 	else
 	{
