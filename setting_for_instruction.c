@@ -34,6 +34,8 @@ void setting_for_instruction(void)
 		{"pall", &monty_func_for_pall},
 		{"pchar", &monty_func_for_pchar},
 		{"pstr", &monty_func_for_pstr},
+		{"rotl", &monty_func_for_rotl},
+		{"rotr", &monty_func_for_rotr},
 		{NULL, NULL}
 	};
 	if (mos->n == 0)

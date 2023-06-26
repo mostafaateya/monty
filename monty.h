@@ -106,4 +106,7 @@ void monty_func_for_mod(stack_t **, unsigned int);
 void monty_func_for_pchar(stack_t **, unsigned int);
 void monty_func_for_pstr(stack_t **, unsigned int);
 
+void monty_func_for_rotl(stack_t **, unsigned int);
+void monty_func_for_rotr(stack_t **, unsigned int);
+
 #endif
