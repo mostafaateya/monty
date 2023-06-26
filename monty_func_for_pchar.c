@@ -13,7 +13,9 @@ void monty_func_for_pchar(stack_t **x, unsigned int l)
 	stack_t *top = mos->top;
 
 	(void) x;
-	if (top->n < 0 || top->n > 127)
+	if (top->n >= 0 || top->n <= 127)
+		printf("%c\n", top->n);
+	else
 	{
 		dprintf(2, "L%d: can't pchar, value out of range\n", l);
 		free_all_memory();
@@ -27,5 +29,4 @@ void monty_func_for_pchar(stack_t **x, unsigned int l)
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%c\n", top->n);
 }
