@@ -9,6 +9,7 @@
 
 void monty_func_for_stack(stack_t **x, unsigned int l)
 {
-	(*x)->n = 0;
+	mos->nn = 0;
+	(void) x;
 	(void) l;
 }

@@ -9,6 +9,7 @@
 
 void monty_func_for_queue(stack_t **x, unsigned int l)
 {
-	(*x)->n = 1;
+	mos->nn = 1;
+	(void) x;
 	(void) l;
 }
